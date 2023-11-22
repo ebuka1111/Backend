@@ -8,7 +8,7 @@ class Course(models.Model):
         return self.title
     
 
-class Cohort(models.Model):
+class Cohort(models.Model):    
     name = models.CharField(max_length=5)
 
     def __str__(self):
@@ -22,3 +22,6 @@ class Student(models.Model):
     cohort = models.ForeignKey(Cohort, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="student_images")
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
